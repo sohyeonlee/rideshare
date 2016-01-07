@@ -1,0 +1,15 @@
+<!-- New Message window -->
+
+<%= form_tag messages_path, method: :post do %>
+
+  <div class="form-group">
+    <%= label_tag 'message[body]', 'Message' %>
+    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+  </div>
+
+  <input type="hidden" name="recipient" value="test">
+
+  <%= submit_tag 'Send', class: 'btn btn-primary' %>
+<% end %>
+
+<% console %>
