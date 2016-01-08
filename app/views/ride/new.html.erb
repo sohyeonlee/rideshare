@@ -1,0 +1,71 @@
+<div class="container">
+    <span class="pull-right">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
+    <div class="col-md-3">
+        <%= render 'layouts/sidebar' %>
+    </div>
+    <div class="col-md-9 col-sm-12">
+        <%= form_for(@ride, :url => { :action => "create" } ) do |f| %>
+        <table class="table no-border-table">
+            <tbody>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        <%= current_user.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        When
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :date, :placeholder => "MM/DD/YYYY", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Flight Time
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :time, :placeholder => "--:-- --", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Departure
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :start, :placeholder => "Departing from", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Arrival
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :end, :placeholder => "Arriving to", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="pull-right">
+                        <%= f.submit 'Submit', :class => 'btn btn-main' %>
+                    </td>
+                </tr>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<% end %>
+</div>
+</div>

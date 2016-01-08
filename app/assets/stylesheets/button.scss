@@ -1,0 +1,22 @@
+$main-color: #1abc9c;
+$font-color: #444;
+$opp-color: #fd4f57;
+$sub-color: #888;
+
+.btn-main {
+  background-color: $main-color;
+}
+
+.btn {
+  color: white !important;
+}
+
+.btn-danger {
+  background-color: $opp-color !important;
+  border: none !important;
+}
+
+.btn-info {
+  background-color: $sub-color !important;
+  border: none !important;
+}

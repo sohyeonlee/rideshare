@@ -1,10 +1,14 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!
+
   def new
+    @recipient = User.find_by_id(params[:user])
   end
 
   def create
-    message_to = User.where(id: params['recipients'])
-    message = current_user.send_message(message_to, params[:message][:body], "").conversation
-    redirect_to conversation_path(message)
+    recipients = User.where(id: params['recipients'])
+    conversation = current_user.send_message(recipients, params[:message][:body], " ").conversation
+    flash[:success] = "Message has been sent!"
+    redirect_to conversations_path(conversation)
   end
 end

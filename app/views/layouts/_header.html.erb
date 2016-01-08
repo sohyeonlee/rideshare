@@ -1,0 +1,16 @@
+<div id="body">
+  <ul class="nav">
+    <li class="logo"> <%= link_to(image_tag("logo.png", :width => 130), root_path) %> </li>
+    <li class="sign">
+      <% if current_user.present? %>
+        <div class="hello-user">Hello <b><%= current_user.name %></b></div>
+      <% else %>
+        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Sign Up</a>
+      <% end %>
+    </li>
+  </ul>
+</div>
+  <div id="light" class="white_content">Sign Up <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+  </div>
+  <div id="fade" class="black_overlay">
+  </div>

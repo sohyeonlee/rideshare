@@ -1,0 +1,5 @@
+<ul class="nav nav-pills nav-stacked">
+  <li class="<%= 'active' if @status == 'profile' %>" > <%= link_to "My profile", users_path %> </li>
+  <li class="<%= 'active' if @status == 'msg' %>"> <%= link_to "Messages", conversations_path %> </li>
+  <li class="<%= 'active' if @status == 'ride' %>"> <%= link_to "Ride Requests", rides_users_path %> </li>
+</ul>

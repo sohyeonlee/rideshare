@@ -1,0 +1,14 @@
+$main-color: #1abc9c;
+$font-color: #444;
+
+
+.nav>li>a:hover {
+  color: #1abc9c !important;
+}
+
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+  background-color: #eee !important;
+  color: $main-color !important;
+}

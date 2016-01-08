@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
-  get 'conversations/index'
+
 
   root 'static#index'
 
   devise_for :users
 
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :users, only: [:index, :edit] do
+    collection do
+      get :rides
+      patch :update_password
+    end
+  end
+
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+    end
+  end
+
+  resources :ride, only: [:index, :destroy, :edit, :create, :new]
+
   resources :messages, only: [:new, :create]
 end

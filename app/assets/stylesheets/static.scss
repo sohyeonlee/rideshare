@@ -1,3 +1,14 @@
-// Place all the styles related to the static controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$main-color: #1abc9c;
+$font-color: #444;
+
+.content {
+  margin: 1% 0%;
+}
+
+html, body {
+  color: #444;
+}
+
+a {
+  color: #444 !important;
+}
