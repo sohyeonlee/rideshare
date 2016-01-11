@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
+  post '/search'=> 'static#search'
+  get '/results' => 'static#result'
   devise_for :users
 
   resources :users, only: [:index, :edit] do
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :ride, only: [:index, :destroy, :edit, :create, :new]
+  resources :ride, only: [:index, :destroy, :edit, :create, :new, :update]
 
   resources :messages, only: [:new, :create]
 end

@@ -1,1 +1,45 @@
 <!-- Main landing page -->
+<script>
+  $(function() { $("#datepicker").datepicker(); });
+  $("#ac_airports").autocomplete({
+    source: "/airports.json"
+  });
+
+</script>
+<div id="bg">
+    <img src="http://i263.photobucket.com/albums/ii155/ky3623/man-person-night-car_zpsxoa5baip.jpg" id="bg">
+</div>
+
+<div class="mainmessage">
+    <h1>
+        EASIEST WAY TO FIND A RIDEMATE TO AIRPORT
+    </h1>
+    <h3>
+        We all need ride to airport. Find a
+        <b>
+            ridemate
+        </b>
+        from your school and save money!
+    </small>
+</h3>
+</div>
+
+<div class="form-style-5">
+  <fieldset>
+  <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-casual active">
+          <input type="radio" name="options" id="toairport" autocomplete="off" checked>
+          To Airport
+      </label>
+      <label class="btn btn-casual">
+          <input type="radio" name="options" id="fromairport" autocomplete="off">
+          From Airport
+      </label>
+  </div>
+
+  <br>
+  <script>
+
+  </script>
+  <%= render 'ride/from_airport' %>
+</div>

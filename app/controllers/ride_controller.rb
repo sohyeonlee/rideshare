@@ -20,8 +20,14 @@ class RideController < ApplicationController
   end
 
   def update
-    @ride = Ride.
+    ride = Ride.find_by_id(params[:id])
+    if ride.update_attributes(ride_params)
+      redirect_to rides_users_path
+    else
+      redirect_to "edit"
+    end
   end
+
   def destroy
     ride = Ride.find_by_id(params[:id])
     if ride.nil?

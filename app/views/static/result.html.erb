@@ -1,0 +1,9 @@
+<% if @rides.present? %>
+  <% @rides.each do |ride| %>
+    <%= ride.start %>
+    <%= ride.end %>
+    <br>
+  <% end %>
+<% else %>
+  No matches found!
+<% end %>

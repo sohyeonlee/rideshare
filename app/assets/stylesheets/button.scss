@@ -1,10 +1,20 @@
 $main-color: #1abc9c;
+$hover-color: #109177;
 $font-color: #444;
 $opp-color: #fd4f57;
 $sub-color: #888;
 
 .btn-main {
   background-color: $main-color;
+  border: none !important;
+}
+
+.btn-casual {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+
+.btn-casual.active, .btn-casual:hover {
+  background-color: $hover-color;
 }
 
 .btn {
@@ -19,4 +29,17 @@ $sub-color: #888;
 .btn-info {
   background-color: $sub-color !important;
   border: none !important;
+}
+
+.btn-main:hover {
+  background-color: $hover-color;
+  border: none !important;
+}
+
+.btn-danger:hover {
+  background-color: #d13940 !important;
+}
+
+.btn-info:hover {
+  background-color: #545454 !important;
 }
