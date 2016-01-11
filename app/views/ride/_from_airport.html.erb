@@ -1,20 +1,20 @@
 <%= form_for(@ride, :url => { :action=>"search", :controller=>"static" } ) do |f| %>
   Airport
   <div class="form-group">
-      <%= f.text_field :start, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
+      <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
   </div>
   Destination
   <div class="form-group">
-      <%= f.text_field :end, :placeholder => "Destination", :class => "form-control" %>
+      <%= f.text_field :end,  :required => true, :placeholder => "Destination", :class => "form-control" %>
   </div>
   Date
   <div class="form-group">
-      <%= date_field("ride", "date", id: "datepicker", placeholder: "Date") %>
+      <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
   </div>
 
   Flight Time
   <div class="form-group">
-      <%= time_field("ride", "time", placeholder: "Date") %>
+      <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
   </div>
   Leave Comments
   <div class="form-group">
