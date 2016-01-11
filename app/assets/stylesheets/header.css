@@ -20,7 +20,6 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: transparent;
 }
 
 .logo {
@@ -32,12 +31,9 @@ body {
     margin-right: 5em;
 }
 .hello-user {
-    margin: 0.7em 0em;
+    margin-top: 1.5em;
 }
-#body>ul.nav {
-    background-color: transparent
-    ;
-}
+
 #body .nav li a {
     display: block;
     color: #666;
@@ -109,12 +105,9 @@ body {
   margin: 0.1em;
 }
 
-#tw {
-  margin: 0.3em;
-}
 .footer-content {
   color: white !important;
-  margin: 0.2em;
+  margin-top: 0.2em;
   padding: 1em;
 }
 .footer-content a {
@@ -125,4 +118,8 @@ body {
     color: #00A0C6;
     text-decoration: none;
     cursor: pointer;
+}
+
+img#sns.footer-content {
+  margin-top: 0.5em;
 }

@@ -5,7 +5,7 @@ html, body {font-family: 'Ubuntu', sans-serif;}
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: -9999;
+	z-index: -1;
 	background-size: auto 100%;
 
 	min-width: 100%;

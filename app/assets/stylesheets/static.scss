@@ -8,8 +8,33 @@ $font-color: #444;
 html, body {
   color: #444;
   font-family: 'Ubuntu', sans-serif;
+  z-index: -2;
+  margin: 0;
+  padding: 0;
 }
 
 a {
-  color: #444 !important;
+  color: $main-color !important;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.4em;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: lighter;
+}
+
+h4 {
+	font-size: 0.6em;
+}
+
+#pageone {
+  width: 100%;
+  float: left;
 }

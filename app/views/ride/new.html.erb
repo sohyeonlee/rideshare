@@ -4,10 +4,11 @@
     <div class="col-md-3">
         <%= render 'layouts/sidebar' %>
     </div>
-    <div class="col-md-9 col-sm-12">
-        <%= form_for(@ride, :url => { :action => "create" } ) do |f| %>
+    <div class="col-md-9 col-sm-12 form-style-main">
+        <%= form_for(@ride, :url => { :action => "create" }, :class => "form-style-main" ) do |f| %>
         <table class="table no-border-table">
             <tbody>
+              <fieldset>
                 <tr>
                     <td>
                         Name
@@ -22,7 +23,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <%= f.text_field :date, :placeholder => "MM/DD/YYYY", :class => "form-control" %>
+                            <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
                         </div>
                     </td>
                 </tr>
@@ -32,7 +33,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <%= f.text_field :time, :placeholder => "--:-- --", :class => "form-control" %>
+                            <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
                         </div>
                     </td>
                 </tr>
@@ -57,6 +58,15 @@
                     </td>
                 </tr>
                 <tr>
+                  <td>
+                    Comments
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+                    </div>
+                  </td>
+                <tr>
                     <td></td>
                     <td class="pull-right">
                         <%= f.submit 'Submit', :class => 'btn btn-main' %>
@@ -64,6 +74,7 @@
                 </tr>
             </td>
         </tr>
+      </fieldset>
     </tbody>
 </table>
 <% end %>

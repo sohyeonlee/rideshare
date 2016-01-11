@@ -3,12 +3,12 @@ $font-color: #444;
 
 
 .nav>li>a:hover {
-  color: #1abc9c !important;
+  color: #444 !important;
 }
 
 .nav-pills>li.active>a,
 .nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
-  background-color: #eee !important;
-  color: $main-color !important;
+  background-color: $main-color !important;
+  color: white !important;
 }

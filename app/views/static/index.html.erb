@@ -1,11 +1,11 @@
 <!-- Main landing page -->
 <script>
-  $(function() { $("#datepicker").datepicker(); });
   $("#ac_airports").autocomplete({
     source: "/airports.json"
   });
 
 </script>
+<div id="pageone">
 <div id="bg">
     <img src="http://i263.photobucket.com/albums/ii155/ky3623/man-person-night-car_zpsxoa5baip.jpg" id="bg">
 </div>
@@ -15,7 +15,7 @@
         EASIEST WAY TO FIND A RIDEMATE TO AIRPORT
     </h1>
     <h3>
-        We all need ride to airport. Find a
+        We all need rides to airport. Find a
         <b>
             ridemate
         </b>
@@ -24,7 +24,7 @@
 </h3>
 </div>
 
-<div class="form-style-5">
+<div class="form-style-main" id="background-main">
   <fieldset>
   <div class="btn-group" data-toggle="buttons">
       <label class="btn btn-casual active">
@@ -42,4 +42,5 @@
 
   </script>
   <%= render 'ride/from_airport' %>
+</div>
 </div>
