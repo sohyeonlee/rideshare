@@ -1,7 +1,7 @@
 <!-- New Message window -->
 
 <%= form_tag messages_path, method: :post do %>
-To : <%= @recipient.name %> 
+To : <%= @recipient.name %>
   <div class="form-group">
     <%= label_tag 'message[body]', 'Message' %>
     <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
@@ -11,5 +11,3 @@ To : <%= @recipient.name %>
 
   <%= submit_tag 'Send', class: 'btn btn-primary' %>
 <% end %>
-
-<% console %>
