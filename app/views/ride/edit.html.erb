@@ -4,8 +4,8 @@
     <div class="col-md-3">
         <%= render 'layouts/sidebar' %>
     </div>
-    <div class="col-md-9 col-sm-12">
-        <%= form_for(@ride, :url => { :action => "update" } ) do |f| %>
+    <div class="col-md-9 col-sm-12 form-style-main">
+        <%= form_for(@ride, :url => { :action => "update" }, :class => "form-style-main" ) do |f| %>
         <table class="table no-border-table">
             <tbody>
                 <tr>
@@ -21,9 +21,9 @@
                         When
                     </td>
                     <td>
-                        <div class="form-group">
-                            <%= f.text_field :date, :placeholder => "MM/DD/YYYY", :class => "form-control" %>
-                        </div>
+                      <div class="form-group">
+                          <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+                      </div>
                     </td>
                 </tr>
                 <tr>
@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <div class="form-group">
-                            <%= f.text_field :time, :placeholder => "--:-- --", :class => "form-control" %>
+                            <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
                         </div>
                     </td>
                 </tr>
@@ -55,6 +55,16 @@
                             <%= f.text_field :end, :placeholder => "Arriving to", :class => "form-control" %>
                         </div>
                     </td>
+                </tr>
+                <tr>
+                  <td>
+                    Comment
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                     <td></td>

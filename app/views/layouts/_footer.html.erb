@@ -1,23 +1,15 @@
 <div id="foot">
-    <% if @inverse == "false" %>
-      <style type="text/css"> #foot { background-color: transparent !important;} </style>
-    <% else %>
-    <% end %>
+    
     <ul class="footer">
-        <li class="footer-content">
-            Copyright
-        </li>
-        <li class="footer-content">
-            <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Contact</a>
-        </li>
+        <li style="color: white; font-size: smaller;" class="footer-content">  Made with ♥ in Oakland 504</li>
     </ul>
     <ul class="sns">
         <div class="sns_icon">
             <li>
-                <a href="http//www.twitter.com"><%= image_tag("tw.png", :height => 30, :id => "sns", :class => "footer-content")%></a>
+                <a href="http//www.twitter.com"><%= image_tag("tw.png", :height => 25, :id => "sns", :class => "footer-content")%></a>
             </li>
             <li>
-                <a href="http//www.facebook.com"><%= image_tag("f.png", :height => 30, :id => "sns", :class => "footer-content")%></a>
+                <a href="http//www.facebook.com"><%= image_tag("f.png", :height => 25, :id => "sns", :class => "footer-content")%></a>
             </li>
         </div>
     </ul>

@@ -1,4 +1,3 @@
-<!-- <% if @rides.present? %> -->
 <div class="container">
     <ol class="breadcrumb">
         <li>
@@ -78,20 +77,50 @@
                     <%= ride.comment %>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-main">
-                        Contact
-                    </button>
+                    <div class="btn btn-main">
+                        <a href="#popUp" id="openPopup" onclick="showSender('<%=User.find_by_id(ride.user_id).name%>', '<%=ride.user_id%>');">
+                            <span style="color:white">Contact</span>
+                        </a>
+                    </div>
                 </td>
             </tr>
             <% end %>
         </tbody>
     </table>
 </div>
-<!-- <% @rides.each do |ride| %>
-    <%= ride.start %>
-    <%= ride.end %>
-    <br>
-  <% end %>
-<% else %>
-  No matches found!
-<% end %> -->
+<!-- POP UP -->
+<div class="popupbody">
+    <aside id="popUp" class="popup">
+        <div class="popUpContainer">
+            <header>
+                <a href="#!" class="closePopUp">X</a>
+                <h2>CONTACT</h2>
+            </header>
+            <article>
+              <%= form_tag messages_path, method: :post do %>
+                <div class="wrap">
+
+                      <div class="input">
+                          <div id="sender-info" style="margin 4% 0%;"></div>
+                          <div class="blockinput">
+                              <textarea placeholder="Let the person know you're interested in sharing a ride", name="body"></textarea>
+                          </div>
+                          <span id="hidden-send"></span>
+                      </div>
+
+                </div>
+                <%= submit_tag 'Send Message', :class => "btn btn-main pull-right", :style => "margin: 0% 4%" %>
+                <% end %>
+            </article>
+        </div>
+        <a href="#!" class="closePopUpOutSide"></a>
+    </aside>
+</div>
+
+<script>
+function showSender(name, id) {
+    $("#sender-info").html("To: " + name);
+    $("#hidden-send").html("<input type='hidden' name='recipients' value="+id+">")
+}
+</script>
+<% console %>

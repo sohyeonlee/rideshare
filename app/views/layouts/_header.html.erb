@@ -13,14 +13,14 @@
         <div class="hello-user"><div style="float: left; padding-right: 0.3em;">Hello </div> <b><span><a href="/users" style="margin:0; padding: 0; float: left"><%= current_user.name %></a></span></b></div>
       <% else %>
         <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
-          <span style="color: white">Sign Up</span>
+          <span style="color: white">Sign In</span>
         </a>
       <% end %>
     </li>
   </div>
   </ul>
 </div>
-<div id="light" class="white_content">Sign Up <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+<div id="light" class="white_content">Sign In <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay">
 </div>

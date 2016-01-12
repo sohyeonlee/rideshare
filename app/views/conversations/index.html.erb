@@ -12,17 +12,23 @@
         </tr>
       </thead>
       <tbody>
-        <% current_user.mailbox.inbox.each do |conversation| %>
+        <% if current_user.mailbox.inbox.present? %>
+          <% current_user.mailbox.inbox.each do |conversation| %>
+            <tr>
+              <td> <%= render 'conversations/sender', conversation: conversation %> </td>
+              <td>
+                 <%= link_to conversation.receipts.last.message.body, conversation_path(conversation) %>
+                 <span class="pull-right">
+                   <%= link_to 'Reply', conversation_path(conversation), class: 'btn btn-sm btn-main' %>
+                    <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-sm btn-danger', method: :delete,
+                     data: {confirm: 'Are you sure?'} %>
+                  </span>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td> <%= render 'conversations/sender', conversation: conversation %> </td>
-            <td>
-               <%= link_to conversation.receipts.last.message.body, conversation_path(conversation) %>
-               <span class="pull-right">
-                 <%= link_to 'Reply', conversation_path(conversation), class: 'btn btn-sm btn-main' %>
-                  <%= link_to 'Delete', conversation_path(conversation), class: 'btn btn-sm btn-danger', method: :delete,
-                   data: {confirm: 'Are you sure?'} %>
-                </span>
-            </td>
+            <td width="50%">You haven't received any messages yet.</td>
           </tr>
         <% end %>
       </tbody>

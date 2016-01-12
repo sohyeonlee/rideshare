@@ -11,6 +11,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
+    @status = "msg"
   end
 
   def reply
