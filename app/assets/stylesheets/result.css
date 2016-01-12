@@ -1,0 +1,51 @@
+
+
+.breadcrumb {
+	background-color: #f1f1f1 !important;
+
+}
+
+.navbar-form {
+	width: 100% !important;
+	margin: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.form-group {
+	margin: auto;
+	display: block;
+	padding: 1% !important;
+}
+
+.directory {
+	margin: 10px 20px;
+}
+
+.ridematch {
+	text-align: center;
+}
+
+.table, .table>thead, .table>thead>tr>th{
+	text-align: center;
+}
+
+.contact:hover
+{
+    background: #109177 !important;
+    color: white !important;
+}
+
+.btn input[type="submit"],
+.btn input[type="button"]
+{
+	background: #1abc9c !important;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn input[type="submit"]:hover,
+.btn input[type="button"]:hover
+{
+    background: #109177 !important;
+}

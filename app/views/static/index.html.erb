@@ -1,1 +1,117 @@
 <!-- Main landing page -->
+<script>
+    // $("#ac_airports").autocomplete({
+    //   source: "/airports.json"
+    // });
+</script>
+<section id="pageone">
+    <div id="bg">
+        <img src="http://i263.photobucket.com/albums/ii155/ky3623/man-person-night-car_zpsxoa5baip.jpg" id="bg">
+    </div>
+
+    <div class="mainmessage">
+        <h1>
+            EASIEST WAY TO FIND A RIDEMATE TO AIRPORT
+        </h1>
+        <h3>
+            We all need rides to airport. Find a
+            <b>
+                ridemate
+            </b>
+            from your school and save money!
+        </h3>
+    </div>
+    <div class="form-style-main" id="background-main">
+        <fieldset>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-casual active">
+                    <input type="radio" onclick="tabChanged(this)" name="options" value="toairport" autocomplete="off" checked>
+                    To Airport
+                </label>
+                <label class="btn btn-casual">
+                    <input type="radio" onclick="tabChanged(this)" name="options" value="fromairport" autocomplete="off">
+                    From Airport
+                </label>
+            </div>
+
+            <br>
+            <script>
+                $(document).ready(function () {
+                    function tabChanged(radioBtn) {}
+                })
+            </script>
+            <%= form_for(@ride, :url => { :action=>"search", :controller=>"static" } ) do |f| %>
+            Airport
+            <div class="form-group">
+                <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
+            </div>
+            Destination
+            <div class="form-group">
+                <%= f.text_field :end,  :required => true, :placeholder => "Destination", :class => "form-control" %>
+            </div>
+            Date
+            <div class="form-group">
+                <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+            </div>
+
+            Flight Time
+            <div class="form-group">
+                <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+            </div>
+            Leave Comments
+            <div class="form-group">
+                <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+            </div>
+        </fieldset>
+        <%= f.submit 'Find a RideMate', :class => 'btn btn-main' %>
+        <% end %>
+    </div>
+</section>
+<section id="pagetwo">
+    <h2>
+        Find your ridemate with 3 simple steps
+        <br>
+    </h2>
+
+    <div class="row">
+        <div class="container">
+            <div class="col-md-4">
+                <h3>
+                    <img src=http://i263.photobucket.com/albums/ii155/ky3623/searchicon_zpspokcl1ge.png class="icons">
+                    <br>
+                    Search
+                </h3>
+                <br>
+                Put your flight information and find a ridemate from your school or closest place
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    <img src=http://i263.photobucket.com/albums/ii155/ky3623/listicon_zpsl0u86a63.png class="icons">
+                    <br>
+                    See my match
+                </h3>
+                <br>
+                See all the list of people who can ride with you to/from the airport
+            </div>
+            <div class="col-md-4">
+                <h3>
+                    <img src=http://i263.photobucket.com/albums/ii155/ky3623/contacticon_zpsduh4ttxg.png class="icons">
+                    <br>
+                    Contact
+                </h3>
+                <br>
+                Send a message to a person saying you want to ride together and split money
+            </div>
+        </div>
+    </div>
+    <br>
+</section>
+<section id="split">
+    Split and Save your fare easily by finding a ridemate
+    <br><br>
+    <%= image_tag("uber.png", :class => "transportation") %>
+    <%= image_tag("lyft.png", :class => "transportation") %>
+    <%= image_tag("supershuttle.png", :class => "transportation") %>
+    <%= image_tag("supreme.png", :class => "transportation") %>
+    <%= image_tag("go.png", :class => "transportation") %>
+</section>

@@ -1,3 +1,41 @@
-// Place all the styles related to the static controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$main-color: #1abc9c;
+$font-color: #444;
+
+.content {
+  margin: 1% 0%;
+}
+
+html, body {
+  color: #444;
+  font-family: 'Ubuntu', sans-serif;
+  z-index: -2;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $main-color !important;
+  text-decoration: none !important;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2.3em;
+}
+
+h3 {
+	font-size: 1.6em;
+	font-weight: lighter;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+#pageone {
+  width: 100%;
+  float: left;
+}

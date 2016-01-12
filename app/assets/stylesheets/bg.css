@@ -1,0 +1,38 @@
+html, body {font-family: 'Ubuntu', sans-serif;}
+
+#bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+	background-size: auto 100%;
+
+	min-width: 100%;
+	min-height: 100%;
+
+}
+
+#logo {
+	position: left;
+	margin: 10px 10px;
+	width: 130px;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.4em;
+}
+
+h3 {
+	font-size: 1em;
+	font-weight: lighter;
+}
+
+.mainmessage {
+    text-align: center;
+    color: white;
+}

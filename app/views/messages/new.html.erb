@@ -1,15 +1,13 @@
 <!-- New Message window -->
 
 <%= form_tag messages_path, method: :post do %>
-
+To : <%= @recipient.name %>
   <div class="form-group">
     <%= label_tag 'message[body]', 'Message' %>
     <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
   </div>
 
-  <input type="hidden" name="recipient" value="test">
+  <input type="hidden" name="recipients" value="testing123">
 
   <%= submit_tag 'Send', class: 'btn btn-primary' %>
 <% end %>
-
-<% console %>

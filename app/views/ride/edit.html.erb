@@ -1,0 +1,81 @@
+<div class="container">
+    <span class="pull-right">
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
+    <div class="col-md-3">
+        <%= render 'layouts/sidebar' %>
+    </div>
+    <div class="col-md-9 col-sm-12 form-style-main">
+        <%= form_for(@ride, :url => { :action => "update" }, :class => "form-style-main" ) do |f| %>
+        <table class="table no-border-table">
+            <tbody>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        <%= current_user.name %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        When
+                    </td>
+                    <td>
+                      <div class="form-group">
+                          <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+                      </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Flight Time
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Departure
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :start, :placeholder => "Departing from", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Arrival
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <%= f.text_field :end, :placeholder => "Arriving to", :class => "form-control" %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                  <td>
+                    Comment
+                  </td>
+                  <td>
+                    <div class="form-group">
+                        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="pull-right">
+                        <%= f.submit 'Update', :class => 'btn btn-main' %>
+                    </td>
+                </tr>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<% end %>
+</div>
+</div>

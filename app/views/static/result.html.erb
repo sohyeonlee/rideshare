@@ -1,0 +1,126 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li class="active">Result
+        </li>
+    </ol>
+    <div class="ridematch">
+        <h1>
+            Ride Match Results
+        </h1>
+        <h2>
+            x matches available going to SFO Airport on Wed, Jan 14th
+        </h2>
+    </div>
+</div>
+
+<form class="navbar-form " role="search">
+    <div class="form-group">
+        <input type="date" class="form-control" name="date">
+        <input type="time" class="form-control" name="time">
+        <input type="text" class="form-control" placeholder="From">
+        <input type="text" class="form-control" placeholder="To">
+    </div>
+    <button type="submit" class="btn btn-info">Update Search</button>
+</form><br><br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Date
+                </th>
+                <th width="10%">
+                    Time
+                </th>
+                <th width="10%">
+                    From
+                </th>
+                <th width="10%">
+                    To
+                </th>
+                <th width="10%">
+                    School
+                </th>
+                <th width="20%">
+                    Comments
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @rides.each do |ride| %>
+            <tr>
+                <td>
+                    <%= User.find_by_id(ride.user_id).name %>
+                </td>
+                <td>
+                    <%= ride.date %>
+                </td>
+                <td>
+                    <%= ride.time %>
+                </td>
+                <td>
+                    <%= ride.start %>
+                </td>
+                <td>
+                    <%= ride.end %>
+                </td>
+                <td>
+                    <%= User.find_by_id(ride.user_id) %>
+                </td>
+                <td>
+                    <%= ride.comment %>
+                </td>
+                <td>
+                    <div class="btn btn-main">
+                        <a href="#popUp" id="openPopup" onclick="showSender('<%=User.find_by_id(ride.user_id).name%>', '<%=ride.user_id%>');">
+                            <span style="color:white">Contact</span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<!-- POP UP -->
+<div class="popupbody">
+    <aside id="popUp" class="popup">
+        <div class="popUpContainer">
+            <header>
+                <a href="#!" class="closePopUp">X</a>
+                <h2>CONTACT</h2>
+            </header>
+            <article>
+              <%= form_tag messages_path, method: :post do %>
+                <div class="wrap">
+
+                      <div class="input">
+                          <div id="sender-info" style="margin 4% 0%;"></div>
+                          <div class="blockinput">
+                              <textarea placeholder="Let the person know you're interested in sharing a ride", name="body"></textarea>
+                          </div>
+                          <span id="hidden-send"></span>
+                      </div>
+
+                </div>
+                <%= submit_tag 'Send Message', :class => "btn btn-main pull-right", :style => "margin: 0% 4%" %>
+                <% end %>
+            </article>
+        </div>
+        <a href="#!" class="closePopUpOutSide"></a>
+    </aside>
+</div>
+
+<script>
+function showSender(name, id) {
+    $("#sender-info").html("To: " + name);
+    $("#hidden-send").html("<input type='hidden' name='recipients' value="+id+">")
+}
+</script>
+<% console %>

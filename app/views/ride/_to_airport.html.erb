@@ -1,0 +1,29 @@
+<%= form_for(@ride, :url => { :action=>"create", :controller=>"ride" } ) do |f| %>
+  Departure
+  <div class="form-group">
+      <%= f.text_field :start, :placeholder => "Departing From", :class => "form-control" %>
+  </div>
+  Airport
+  <div class="form-group">
+      <%= f.text_field :end, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
+  </div>
+  Date
+  <div class="form-group">
+      <%= date_field("ride", "date", id: "datepicker", placeholder: "Date") %>
+  </div>
+
+  Flight Time
+  <div class="form-group">
+      <%= time_field("ride", "time", placeholder: "Date") %>
+  </div>
+  Leave Comments
+  <div class="form-group">
+      <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+  </div>
+  </fieldset>
+  <%= f.submit 'Find a RideMate', :class => 'btn btn-main' %>
+<% end %>
+
+
+<!-- have different controller actions for different page calls
+ -->
