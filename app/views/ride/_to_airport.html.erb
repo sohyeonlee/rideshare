@@ -1,29 +1,44 @@
-<%= form_for(@ride, :url => { :action=>"create", :controller=>"ride" } ) do |f| %>
-  Departure
-  <div class="form-group">
-      <%= f.text_field :start, :placeholder => "Departing From", :class => "form-control" %>
-  </div>
-  Airport
-  <div class="form-group">
-      <%= f.text_field :end, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
-  </div>
-  Date
-  <div class="form-group">
-      <%= date_field("ride", "date", id: "datepicker", placeholder: "Date") %>
-  </div>
+<div id="toairport" class="panel active">
+    <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
+    Departure
+    <div class="form-group">
+        <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
+    </div>
+    Airport
+    <div class="form-group">
+      <div id="pre-fetch">
+        <%= f.text_field :end, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead" %>
+      </div>
+    </div>
+    Date
+    <div class="form-group">
+        <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+    </div>
 
-  Flight Time
-  <div class="form-group">
-      <%= time_field("ride", "time", placeholder: "Date") %>
-  </div>
-  Leave Comments
-  <div class="form-group">
-      <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
-  </div>
-  </fieldset>
-  <%= f.submit 'Find a RideMate', :class => 'btn btn-main' %>
-<% end %>
+    Flight Time
+    <div class="form-group">
+        <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+    </div>
+    Leave Comments
+    <div class="form-group">
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+    </div>
+    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Text' } %>
+    <% end %>
+</div>
+<script>
+var airports = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // url points to a json file that contains an array of country names, see
+  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+  prefetch: '/airport.json'
+});
 
-
-<!-- have different controller actions for different page calls
- -->
+// passing in `null` for the `options` arguments will result in the default
+// options being used
+$('#pre-fetch .typeahead').typeahead(null, {
+  name: 'name',
+  source: airports
+});
+</script>

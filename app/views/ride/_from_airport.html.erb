@@ -1,25 +1,65 @@
-<%= form_for(@ride, :url => { :action=>"search", :controller=>"static" } ) do |f| %>
-  Airport
-  <div class="form-group">
-      <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control", :id => "ac_airports" %>
-  </div>
-  Destination
-  <div class="form-group">
-      <%= f.text_field :end,  :required => true, :placeholder => "Destination", :class => "form-control" %>
-  </div>
-  Date
-  <div class="form-group">
-      <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
-  </div>
+<div id="fromairport" class="panel">
+    <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
+    Airport
+    <div class="form-group">
+      <div id="prefetch">
+        <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead" %>
+      </div>
+    </div>
+    Destination
+    <div class="form-group">
+        <%= f.text_field :end,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control" %>
+    </div>
+    Date
+    <div class="form-group">
+        <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+    </div>
 
-  Flight Time
-  <div class="form-group">
-      <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
-  </div>
-  Leave Comments
-  <div class="form-group">
-      <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
-  </div>
-  </fieldset>
-  <%= f.submit 'Find a RideMate', :class => 'btn btn-main' %>
-<% end %>
+    Flight Time
+    <div class="form-group">
+        <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+    </div>
+    Leave Comments
+    <div class="form-group">
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+    </div>
+    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Text' } %>
+    <% end %>
+</div>
+
+<script>
+var airports = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  // url points to a json file that contains an array of country names, see
+  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+  prefetch: '/airport.json'
+});
+
+// passing in `null` for the `options` arguments will result in the default
+// options being used
+$('#prefetch .typeahead').typeahead(null, {
+  name: 'name',
+  source: airports
+});
+
+$(function() {
+
+
+  $( "#city" ).autocomplete({
+    source: function( request, response ) {
+      $.ajax({
+        url: "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&template=<geobytes%20city>",
+        dataType: "jsonp",
+        data: {
+          q: request.term
+        },
+        success: function( data ) {
+          response( data.slice(0,5) );
+        }
+      });
+    },
+    minLength: 3
+  });
+});
+</script>

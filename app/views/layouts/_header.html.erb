@@ -1,26 +1,114 @@
 <div id="body">
-  <ul class="nav">
-    <div class="<%= 'transparent' if @inverse %>">
-    <li class="logo">
-      <% if @inverse == "false" %>
-        <%= link_to(image_tag("logo.png", :width => 130), root_path) %> </li>
-      <% else %>
-        <style type="text/css"> #body>ul.nav { background-color: white; color: white;} .hello-user { color: #444} </style>
-        <%= link_to(image_tag("logoblack.png", :width => 130), root_path) %> </li>
-      <% end %>
-    <li class="sign">
-      <% if current_user.present? %>
-        <div class="hello-user"><div style="float: left; padding-right: 0.3em;">Hello </div> <b><span><a href="/users" style="margin:0; padding: 0; float: left"><%= current_user.name %></a></span></b></div>
-      <% else %>
-        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
-          <span style="color: white">Sign In</span>
-        </a>
-      <% end %>
-    </li>
+    <ul class="nav">
+        <div class="<%= 'transparent' if @inverse %>">
+            <li class="logo">
+                <% if @inverse == "false" %>
+                <%= link_to(image_tag("logo.png", :width => 130), root_path) %>
+            </li>
+        <% else %>
+            <style type="text/css">
+                #body>ul.nav {
+                    background-color: white;
+                    color: white;
+                }
+                .hello-user {
+                    color: #444;
+                }
+
+            </style>
+            <%= link_to(image_tag("logoblack.png", :width => 130), root_path) %>
+        </li>
+        <% end %>
+        <li class="sign">
+            <% if current_user.present? %>
+            <div class="hello-user">
+                <div style="float: left; padding-right: 0.3em;">Hello</div>
+                <b>
+                  <span>
+                    <a href="/users" style="margin:0; padding: 0; float: left"><%= current_user.name %></a>
+                  </span>
+                </b>
+                </div>
+            <% else %>
+              <a href="#popUp">Sign In</a>
+            <% end %>
+        </li>
+    </div>
+</ul>
+</div>
+<div id="popUp" class="popup">
+  <div clss="popUpContainer">
+      <div class="form-wrapper">
+          <input id="trigger" type="checkbox">
+          <form id="sign-in">
+              <header>
+                  <a href="#!" class="closePopUp">X</a>
+                  <h2>SIGN IN</h2>
+              </header>
+              <div class="mat-div">
+                  <label for="E-mail" class="mat-label">E-mail</label>
+                  <input type="text" class="mat-input" id="E-mail" required>
+              </div>
+
+              <div class="mat-div">
+                  <label for="password" class="mat-label">Password</label>
+                  <input type="password" class="mat-input" id="password" required>
+              </div>
+
+              <button class="btn btn-main middle" type="submit">See My matches</button>
+              <div class="btbottom">
+                  <label class="forgot">
+                      <a href="#">Forgot Password</a>
+                  </label>
+                  <label class="gosignup" for="trigger">Sign Up</label>
+              </div>
+          </form>
+
+          <form id="sign-up">
+              <header>
+                  <a href="#!" class="closePopUp">X</a>
+                  <h2>SIGN UP</h2>
+              </header>
+              <div class="mat-div">
+                  <label for="full-name" class="mat-label">Full name</label>
+                  <input type="text" class="mat-input" id="full-name" required>
+              </div>
+
+              <div class="mat-div">
+                  <label for="univeristy" class="mat-label">University Name</label>
+                  <input type="text" class="mat-input" id="university-name" required>
+              </div>
+
+              <div class="mat-div">
+                  <label for="univeristy-email" class="mat-label">University Email</label>
+                  <input type="text" class="mat-input" id="university-email" required>
+              </div>
+
+              <div class="mat-div">
+                  <label for="password" class="mat-label">Password</label>
+                  <input type="password" class="mat-input" id="password" required>
+              </div>
+
+              <div class="mat-div">
+                  <label for="password-confirm" class="mat-label">Password Confirmation</label>
+                  <input type="password" class="mat-input" id="password" required>
+              </div>
+              <button class="btn btn-main" type="submit">See My Match</button>
+              <label class="fake-link" for="trigger">ALREADY HAVE AN ACCOUNT</label>
+          </form>
+      </div>
   </div>
-  </ul>
 </div>
-<div id="light" class="white_content">Sign In <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
-</div>
-<div id="fade" class="black_overlay">
-</div>
+<script>
+$(document).ready(function () {
+    $(".mat-input").focus(function () {
+        $(this).parent().addClass("is-active is-completed");
+    });
+
+    $(".mat-input").focusout(function () {
+        if ($(this).val() === "")
+            $(this).parent().removeClass("is-completed");
+        $(this).parent().removeClass("is-active");
+    });
+});
+</script>

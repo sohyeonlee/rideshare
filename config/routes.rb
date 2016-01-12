@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
-  post '/search'=> 'static#search'
-  get '/results' => 'static#result'
+  post '/result' => 'static#result'
+  post '/search' => 'static#search'
   devise_for :users
 
   resources :users, only: [:index, :edit] do

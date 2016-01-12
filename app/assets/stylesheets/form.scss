@@ -4,7 +4,9 @@ $font-color: #444;
 $opp-color: #fd4f57;
 $sub-color: #888;
 
-
+.tt-suggestion {
+  background-color: #444;
+}
 
 .form-style-main {
     padding: 10px 20px;
@@ -12,7 +14,16 @@ $sub-color: #888;
     padding: 3% 3%;
     border-radius: 8px;
 }
+span.twitter-typeahead {
+  width: 100%;
+}
 
+#ui-id-1 {
+  position: absolute;
+  background-color: #444;
+  color: white;
+  list-style-type: none;
+}
 #background-main {
   width: 50%;
   background: rgba(0,0,0,0.4);
@@ -83,6 +94,38 @@ $sub-color: #888;
     font-style: normal;
     width: 100%;
     margin-bottom: 10px;
+}
+.form-style-main .tab {
+    display: inline-block;
+}
+
+.form-style-main .tab:focus {
+    box-shadow: #444;
+}
+
+.form-style-main .tab:hover {
+    background-color: #109177;
+}
+
+.form-style-main .tab.active {
+    color: white;
+    cursor: default;
+}
+.panel {
+  background-color: transparent;
+  margin: 0;
+  box-shadow: none;
+}
+.panels {
+  color: white !important;
+}
+
+.form-style-main .panel {
+    display: none;
+}
+
+.form-style-main .panel.active {
+    display: block;
 }
 
 #pageone, #pagetwo {
