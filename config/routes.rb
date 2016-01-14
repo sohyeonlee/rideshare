@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   root 'static#index'
 
   get '/result' => 'static#result'
   post '/result' => 'static#result'
   patch '/search' => 'static#search'
 
-  devise_for :users
+
 
   resources :users, only: [:index, :edit] do
     collection do
