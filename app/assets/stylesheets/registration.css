@@ -1,4 +1,4 @@
-.popup2 {
+.signin {
     position: fixed;
     top: -100vh;
     left: 0;
@@ -12,7 +12,7 @@
     -o-transition: opacity 0.35s ease;
     transition: opacity 0.35s ease;
 }
-.popup2:target {
+.signin:target {
     opacity: 1;
     top: 0;
 }
@@ -36,13 +36,13 @@ input[type=checkbox] {
     background-color: #eee;
     border-radius: 15px 15px 15px 15px;
 }
-.popup2 h2 {
+.signin h2 {
     padding: 0.5em;
     text-align: center;
     color: #1abc9c;
     margin: 0;
 }
-.popup2 a.closePopUp {
+.signin a.closePopUp {
     font-family: verdana;
     color: #1abc9c;
     position: absolute;
@@ -57,7 +57,7 @@ input[type=checkbox] {
 
 /* The cancel button on popup dialog */
 
-.popup2 a:hover {
+.signin a:hover {
     color: #109177;
 }
 #sign-in {
@@ -214,7 +214,7 @@ input[type=checkbox]:checked ~ #sign-up {
     margin: 5% auto !important;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-    #popUp2 h2 {
+    #signin h2 {
         font-size: 50px;
     }
     #mattew {
@@ -235,7 +235,7 @@ input[type=checkbox]:checked ~ #sign-up {
 /* iPads (portrait and landscape) ----------- */
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    #popUp2 h2 {
+    #signin h2 {
         font-size: 50px;
     }
     #mattew {

@@ -95,6 +95,12 @@ span.twitter-typeahead {
     width: 100% !important;
     margin-bottom: 10px !important;
 }
+.form-style-main input[type="submit"]:hover,
+.form-style-main input[type="button"]:hover {
+  background-color: $hover-color !important;
+
+}
+
 .form-style-main .tab {
     display: inline-block;
 }

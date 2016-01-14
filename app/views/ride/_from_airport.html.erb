@@ -7,27 +7,27 @@
       </div>
     </div>
     <div class="form-group inline-address second-main">
-    Date
+    Arrival Date
     <%= date_field("ride", "date", :required => true, :class => "firstline") %>
     </div>
     <div class="form-group inline-address second-sm">
-    Flight Time
+    Arrival Time
         <%= time_field("ride", "time",  :required => true,  :class => "firstline") %>
     </div>
     <div class="form-group inline-address first-main">
-    Destination
-        <%= f.text_field :street,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
+    Your Street Address
+        <%= f.text_field :street,  :required => true, :id => "city", :placeholder => "ex. Main St", :class => "form-control firstline" %>
     </div>
     <div class="form-group inline-address first-main">
-    City
-        <%= f.text_field :end_point,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
+    Your City
+        <%= f.text_field :end_point,  :required => true, :id => "city", :placeholder => "ex. San Francisco", :class => "form-control firstline" %>
     </div>
     <div class="form-group inline-address" style="width: 100%;">
     Leave Comments
         <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true, :class => "firstline") %>
     </div>
     <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
-
+    <div style="color: white; text-align: center"><i>Your ridemate request will be shown to others</i></div> 
     <% end %>
 </div>
 

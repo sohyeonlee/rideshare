@@ -1,5 +1,5 @@
 @media only screen and (max-width: 1000px) {
- 
+
  	img {
  		width:300px;
  	}
@@ -79,9 +79,7 @@
   .second-main {
     width: 34%;
   }
-  .second-sm {
-    width: 25%;
-  }
+
 
 	.typeahead {
 		width: 100%;
@@ -112,4 +110,29 @@
 		width: 70px;
 		height: 70px;
 	}
+}
+
+.first-main {
+  width: 48%;
+}
+
+.second-main {
+  width: 34%;
+}
+.second-sm {
+  width: 25%;
+}
+
+@media only screen and (max-width: 800px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
 }

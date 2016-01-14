@@ -32,7 +32,7 @@ $sub-color: #888;
 }
 
 .btn-main:hover {
-  background-color: $hover-color;
+  background-color: $hover-color !important;
   border: none !important;
 }
 
