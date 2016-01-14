@@ -2,7 +2,7 @@
     <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
     <div class="form-group inline-address first-main">
     Departure
-        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control firstline" %>
+        <%= f.text_field :street, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control firstline" %>
     </div>
     <div class="form-group inline-address first-main">
     City

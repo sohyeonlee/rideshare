@@ -40,7 +40,7 @@ class RideController < ApplicationController
 
 private
   def ride_params
-    params.require(:ride).permit(:date, :time, :start, :end, :comment)
+    params.require(:ride).permit(:date, :time, :start, :end, :comment, :street)
   end
 
 end
