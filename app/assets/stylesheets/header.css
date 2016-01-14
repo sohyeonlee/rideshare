@@ -11,7 +11,7 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 50px;
+    /*height: 50px;*/
     width: 100%;
 }
 #body:ul {
@@ -29,6 +29,7 @@ body {
 .sign {
     float: right;
     margin-right: 5em;
+    color: white;
 }
 .hello-user {
     margin-top: 1.5em;
@@ -133,7 +134,8 @@ img#sns.footer-content {
 @media only screen and (max-width: 1000px) {
   .sign {
     margin: 20px;
-    font-size: 2.5em;
+    font-size: 35px;
+    color: white;
   }
 
   .hello-user {

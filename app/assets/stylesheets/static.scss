@@ -4,10 +4,6 @@
 $main-color: #1abc9c;
 $font-color: #444;
 
-.content {
-  margin: 1% 0%;
-}
-
 html, body {
   color: #444;
   font-family: 'Ubuntu', sans-serif;
@@ -20,9 +16,10 @@ body {
   height: 0;
 }
 
-.container {
-  padding-bottom: 3%;
+.background-gray {
+  margin: 3% 0%;
 }
+
 a {
   color: $main-color !important;
   text-decoration: none !important;
