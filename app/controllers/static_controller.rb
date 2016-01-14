@@ -13,7 +13,7 @@ class StaticController < ApplicationController
       if !@ride.save
         redirect_to "index"
       end
-      @rides = Ride.where("start=? AND end=? AND date=?", params[:ride][:start], params[:ride][:end], params[:ride][:date])
+      @rides = Ride.where("start=? AND end=? AND date=?", params[:ride][:start_point], params[:ride][:end_point], params[:ride][:date])
     else
       session[:ride_params] = params
       redirect_to new_user_registration_path
@@ -22,12 +22,12 @@ class StaticController < ApplicationController
 
   def search
     @ride = current_user.rides.new(ride_params)
-    @rides = Ride.where("start = ? AND end = ? AND date = ?", {start: params[:ride][:start], end: params[:ride][:end], date: params[:ride][:date]})
+    @rides = Ride.where("start = ? AND end = ? AND date = ?", {start_point: params[:ride][:start_point], end_point: params[:ride][:end_point], date: params[:ride][:date]})
   end
 
 private
   def ride_params
-    params.require(:ride).permit(:date, :time, :start, :end, :comment)
+    params.require(:ride).permit(:date, :time, :start_point, :end_point, :comment)
   end
  def store_location
    session[:login_redirect] = request.path unless current_user
