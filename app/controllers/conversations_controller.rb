@@ -4,9 +4,7 @@ class ConversationsController < ApplicationController
   before_action :get_conversation, except: [:index]
 
   def index
-    @users = User.all
     @unread_messages = @mailbox.inbox(unread: true).count
-    @messages = @mailbox.inbox
     @status = "msg"
   end
 

@@ -19,4 +19,13 @@ protected
     redirect_to request.referer || path
   end
 
+  def after_sign_in_path_for(resource)
+  session["user_return_to"] || root_url
+  end
+
+  def set_return_path
+    unless devise_controller? || request.xhr? || !request.get?
+      session["user_return_to"] = request.url
+    end
+  end
 end

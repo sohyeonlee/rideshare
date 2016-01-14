@@ -21,9 +21,13 @@
     </div>
     Leave Comments
     <div class="form-group">
-        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true) %>
     </div>
-    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Text' } %>
+    <% if current_user.present? %>
+      <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
+    <% else %>
+      <div class="btn btn-main btn-landing"><a href="#popUp2"><span style="color:white">Find a RideMate</span></a></div>
+    <% end %>
     <% end %>
 </div>
 
@@ -31,8 +35,7 @@
 var airports = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  // url points to a json file that contains an array of country names, see
-  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+
   prefetch: '/airport.json'
 });
 
@@ -44,12 +47,10 @@ $('#prefetch .typeahead').typeahead(null, {
 });
 
 $(function() {
-
-
   $( "#city" ).autocomplete({
     source: function( request, response ) {
       $.ajax({
-        url: "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&template=<geobytes%20city>",
+        url: "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&template=<geobytes%20city>,%20<geobytes%20code>",
         dataType: "jsonp",
         data: {
           q: request.term

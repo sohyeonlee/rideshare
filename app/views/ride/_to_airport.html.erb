@@ -2,7 +2,7 @@
     <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
     Departure
     <div class="form-group">
-        <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
+        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control" %>
     </div>
     Airport
     <div class="form-group">
@@ -21,9 +21,17 @@
     </div>
     Leave Comments
     <div class="form-group">
-        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber") %>
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true) %>
     </div>
-    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Text' } %>
+    <% if current_user.present? %>
+      <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
+    <% else %>
+      <a href="#popUp2">
+        <div class="btn btn-main btn-landing">
+          <span style="color:white">Find a RideMate</span>
+        </div>
+      </a>
+    <% end %>
     <% end %>
 </div>
 <script>
@@ -40,5 +48,23 @@ var airports = new Bloodhound({
 $('#pre-fetch .typeahead').typeahead(null, {
   name: 'name',
   source: airports
+});
+
+$(function() {
+  $( "#city-result" ).autocomplete({
+    source: function( request, response ) {
+      $.ajax({
+        url: "http://gd.geobytes.com/AutoCompleteCity?callback=?&filter=US&template=<geobytes%20city>,%20<geobytes%20code>",
+        dataType: "jsonp",
+        data: {
+          q: request.term
+        },
+        success: function( data ) {
+          response( data.slice(0,5) );
+        }
+      });
+    },
+    minLength: 3
+  });
 });
 </script>

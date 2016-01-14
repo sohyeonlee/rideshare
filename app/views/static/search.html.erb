@@ -16,15 +16,17 @@
     </div>
 </div>
 
-<form class="navbar-form" method="post" action="/search">
-    <div class="form-group">
-        <input type="date" class="form-control" name="date" value="<%=@ride.date%>">
-        <input type="time" class="form-control" name="time" value="<%=@ride.time%>">
-        <input type="text" class="form-control" name="start" placeholder="From" value="<%=@ride.start%>">
-        <input type="text" class="form-control" name="end" placeholder="To" value="<%=@ride.end%>">
-    </div>
-    <button type="submit" class="btn btn-info">Update Search</button>
-</form><br><br>
+<%= form_for(@ride, :url => { :action=>"search", :controller=>"static" }, :class => "navbar-form" ) do |f| %>
+  <div class="form-group navbar-form">
+      <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+      <%= time_field("ride", "time", :required => true, placeholder: "Time") %>
+      <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
+      <%= f.text_field :end, :required => true, :placeholder => "Ariving at", :class => "form-control" %>
+      <%= f.hidden_field :comment %>
+      <button type="submit" class="btn btn-info">Update Search</button>
+  </div>
+<% end %>
+<br><br>
 <div class="container">
     <table class="table">
         <thead>

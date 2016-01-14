@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'static#index'
 
   post '/result' => 'static#result'
-  post '/search' => 'static#search'
+  patch '/search' => 'static#search'
+
   devise_for :users
 
   resources :users, only: [:index, :edit] do

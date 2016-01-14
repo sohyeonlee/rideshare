@@ -1,0 +1,194 @@
+
+.popup2{
+  position: fixed;
+  top: -100vh;
+  left: 0;
+  z-index: 9999999;
+  background: rgba(0,0,0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+
+    -webkit-transition: opacity  0.35s ease;
+    -moz-transition: opacity 0.35s ease;
+    -o-transition: opacity 0.35s ease;
+    transition: opacity 0.35s ease;
+}
+
+.popup2:target{
+  opacity: 1;
+  top: 0;
+}
+
+/* Hiding the trigger checkbox */
+input[type=checkbox] {display: none;}
+
+/* Centering the forms */
+.form-wrapper
+{ position: relative;
+  width:25%;
+  min-width: 400px;
+  margin: 0 auto;
+  top:15%;
+  height: 400px;
+  min-height: 40%;
+  background-color: #eee;
+  border-radius: 15px 15px 15px 15px;
+}
+.popup2 h2{
+  padding: 0.5em;
+  text-align: center;
+  color: #1abc9c;
+  margin: 0;
+}
+.popup2 a.closePopUp{
+  font-family: verdana;
+  color: #1abc9c;
+  position: absolute;
+  top: 0.2em;
+  right: 0.375em;
+  margin: 0;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+/* The cancel button on popup dialog */
+.popup2 a:hover{
+  color: #109177;
+}
+#sign-in{  position: absolute; /* make forms overlap each other */
+  transition: opacity 0.5s ease;
+        width:100%;
+        height:100%;}
+#sign-up {
+          position: absolute; /* make forms overlap each other */
+          transition: opacity 0.5s ease;
+          color:black;}
+
+#sign-up button {width:50% !important;}
+/* Custom Styling
+********************/
+
+.mat-label {
+  display: block;
+  font-size: 1em;
+  transform: translateY(1.2em);
+  color: #444;
+  transition: all 0.5s;
+}
+
+.mat-input {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 1em;
+  margin-left: 2em;
+}
+
+.mat-div {
+  margin-left: 2em;
+  padding: 10px 0 0 0;
+  position: relative;
+}
+
+.mat-div:after, .mat-div:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 80%;
+  height: 1.5px;
+  background-color: #D3D3D3;
+  bottom: 0;
+  left: 0;
+  margin-left: 2em;
+  transition: all 0.5s;
+}
+
+.mat-div::after {
+  background-color: #1abc9c ;
+  transform: scaleX(0);
+}
+
+.is-active::after {
+  transform: scaleX(1);
+}
+
+.is-active .mat-label {
+  color: #1abc9c;
+}
+
+.is-completed .mat-label {
+  font-size: 0.7em;
+  transform: translateY(0);
+}
+button {
+  cursor:pointer;
+  background-color: #1abc9c !important;
+  border: none !important;
+  display: block !important;
+  margin: 20px auto !important;
+  padding: 15px 30px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  color:white !important;
+  font-size: 1.2em !important;
+  transition: background .3s ease-in;
+}
+button:hover{background-color:#109177 !important;}
+
+.forgot{float::left;
+        margin-left: 2em;
+        cursor:pointer;}
+.forgot a:hover{text-decoration: none;
+                color:#109177;}
+.gosignup{float:right;
+          margin-right: 2em;
+          cursor:pointer;
+          color:#1abc9c;}
+.gosignup:hover{color:#109177 }
+
+.btbottom{display:inline-block;
+          width:100%;}
+
+.fake-link {
+  display: block;
+  text-decoration: underline;
+  text-align: center;
+  cursor:pointer;
+}
+.fake-link:hover{color:#109177 }
+
+/* Sign in form on top sign up */
+#sign-in {z-index: 1;}
+#hi {
+  margin: 0.5em;
+}
+/* Hiding the sign up form */
+#sign-up {
+  opacity: 0;
+  visibility: hidden;
+  background-color: #eee;
+  border-radius: 15px 15px 15px 15px;
+  width: 100%;
+  height: 120%;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+  background-color: transparent !important;
+}
+/* If triger is checked hide Sign in form and show sign up */
+input[type=checkbox]:checked ~ #sign-in {
+  opacity: 0;
+  visibility: hidden;
+}
+input[type=checkbox]:checked ~ #sign-up {
+  opacity: 1;
+  visibility: visible;
+}
+.registration {
+  display: block !important;
+  margin: 5% auto !important;
+}

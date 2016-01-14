@@ -14,12 +14,12 @@ body {
     height: 50px;
     width: 100%;
 }
-#body ul {
+#body:ul {
     font-size: 1.1em;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .logo {
@@ -122,4 +122,13 @@ body {
 
 img#sns.footer-content {
   margin-top: 0.5em;
+}
+
+
+/* Dropdown Menu*/
+.dropdown-toggle {
+  width: 120px;
+}
+ul.dropdown-menu {
+
 }
