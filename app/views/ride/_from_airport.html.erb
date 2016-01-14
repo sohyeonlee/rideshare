@@ -1,33 +1,33 @@
 <div id="fromairport" class="panel">
     <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
+    <div class="form-group inline-address second-main">
     Airport
-    <div class="form-group">
       <div id="prefetch">
-        <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead" %>
+        <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline" %>
       </div>
     </div>
-    Destination
-    <div class="form-group">
-        <%= f.text_field :end,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control" %>
-    </div>
+    <div class="form-group inline-address second-main">
     Date
-    <div class="form-group">
-        <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+    <%= date_field("ride", "date", :required => true, :class => "firstline") %>
     </div>
-
+    <div class="form-group inline-address second-sm">
     Flight Time
-    <div class="form-group">
-        <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+        <%= time_field("ride", "time",  :required => true,  :class => "firstline") %>
     </div>
+    <div class="form-group inline-address first-main">
+    Destination
+        <%= f.text_field :end,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
+    </div>
+    <div class="form-group inline-address first-main">
+    City
+        <%= f.text_field :end,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
+    </div>
+    <div class="form-group inline-address" style="width: 100%;">
     Leave Comments
-    <div class="form-group">
-        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true) %>
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true, :class => "firstline") %>
     </div>
-    <% if current_user.present? %>
-      <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
-    <% else %>
-      <div class="btn btn-main btn-landing"><a href="#popUp2"><span style="color:white">Find a RideMate</span></a></div>
-    <% end %>
+    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
+
     <% end %>
 </div>
 

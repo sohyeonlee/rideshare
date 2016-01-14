@@ -14,6 +14,7 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'noreply@miisik.com'
   config.reconfirmable = false
+  config.allow_unconfirmed_access_for = 1.day
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

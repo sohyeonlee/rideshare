@@ -11,11 +11,18 @@ $font-color: #444;
 html, body {
   color: #444;
   font-family: 'Ubuntu', sans-serif;
-  z-index: -2;
   margin: 0;
   padding: 0;
+  background-color: #eee;
 }
 
+body {
+  height: 0;
+}
+
+.container {
+  padding-bottom: 3%;
+}
 a {
   color: $main-color !important;
   text-decoration: none !important;
@@ -41,4 +48,27 @@ h4 {
 #pageone {
   width: 100%;
   float: left;
+}
+
+.width30 {
+  width: 100%;
+  margin: 0.5em 0em;
+}
+
+.center-block {
+  margin: 0 auto;
+  display: table;
+}
+
+.sm-margin-right {
+  margin-right: 1em;
+}
+
+.inline-address {
+	display: inline-block;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
 }

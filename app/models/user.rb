@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :rides
   acts_as_messageable
 
+
   def mailboxer_email(object)
     if object.class==Mailboxer::Notification
       return nil
@@ -13,5 +14,7 @@ class User < ActiveRecord::Base
       email
     end
   end
-
+  # protected
+  # def confirmation_required?
+  # end
 end

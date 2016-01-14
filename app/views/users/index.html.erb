@@ -1,34 +1,36 @@
-<div class="container">
-  
-  <div class="col-md-3">
-    <%= render 'layouts/sidebar' %>
-  </div>
-  <div class="col-md-9 col-sm-12">
-    <table class="table no-border-table">
-      <tbody>
-          <tr>
-            <td> Name </td>
-            <td> <%= current_user.name %> </td>
-          </tr>
-          <tr>
-            <td> Email </td>
-            <td> <%= current_user.email %> </td>
-          </tr>
-          <tr>
-            <td> Password </td>
-            <td>
-              <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
-                <div class="form-group">
-                  <%= f.password_field :password, :autocomplete => "off", :placeholder => "Password", :class => "form-control"  %>
-                </div>
-                <div class="form-group">
-                  <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "form-control" %>
-                </div>
-                <%= f.submit 'Submit', :class => 'btn btn-main' %>
-              <% end %>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<div class="background-gray">
+  <div class="container">
+
+    <div class="col-md-3">
+      <%= render 'layouts/sidebar' %>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <table class="table no-border-table">
+        <tbody>
+            <tr>
+              <td> Name </td>
+              <td> <%= current_user.name %> </td>
+            </tr>
+            <tr>
+              <td> Email </td>
+              <td> <%= current_user.email %> </td>
+            </tr>
+            <tr>
+              <td> Password </td>
+              <td>
+                <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+                  <div class="form-group">
+                    <%= f.password_field :password, :autocomplete => "off", :placeholder => "Password", :class => "form-control"  %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.password_field :password_confirmation, :placeholder => "Password Confirmation", :class => "form-control" %>
+                  </div>
+                  <%= f.submit 'Submit', :class => 'btn btn-main' %>
+                <% end %>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

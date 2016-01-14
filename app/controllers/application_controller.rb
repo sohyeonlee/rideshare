@@ -20,12 +20,18 @@ protected
   end
 
   def after_sign_in_path_for(resource)
-  session["user_return_to"] || root_url
+    if session[:ride_params].present?
+      param = session[:ride_params]
+      session[:ride_params] = nil
+      result_path(param)
+    else
+      session[:previous_url] || root_path
+    end
   end
 
   def set_return_path
     unless devise_controller? || request.xhr? || !request.get?
-      session["user_return_to"] = request.url
+      session[:previous_url] = request.url
     end
   end
 end

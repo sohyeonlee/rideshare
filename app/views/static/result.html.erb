@@ -1,129 +1,129 @@
-<div class="container">
-    <ol class="breadcrumb">
-        <li>
-            <a href="/">Home</a>
-        </li>
-        <li class="active">Result
-        </li>
-    </ol>
-    <div class="ridematch">
-        <h1>
-            Ride Match Results
-        </h1>
-        <h2>
-            <%= @rides.count %> matches available going to <%= @ride.end %> on <%= @ride.date %>
-        </h2>
-    </div>
-</div>
+<div class="background-gray">
+  <div class="container">
+      <ol class="breadcrumb">
+          <li>
+              <a href="/">Home</a>
+          </li>
+          <li class="active">Result
+          </li>
+      </ol>
+      <div class="ridematch">
+          <h1>
+              Ride Match Results
+          </h1>
+          <h3>
+              <b><%= @rides.count %></b> matches available going to <b><%= @ride.end %></b> on <b><%= @ride.date %></b>
+          </h3>
+      </div>
+  </div>
 
-  <%= form_for(@ride, :url => { :action=>"search", :controller=>"static" }, :class => "navbar-form" ) do |f| %>
-    <div class="form-group navbar-form">
-        <%= date_field("ride", "date", :required => true, placeholder: "Date", :class => "form-control") %>
-        <%= time_field("ride", "time", :required => true, placeholder: "Time", :class => "form-control") %>
-        <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
-        <%= f.text_field :end, :required => true, :placeholder => "Ariving at", :class => "form-control" %>
-        <%= f.hidden_field :comment %>
-        <button type="submit" class="btn btn-info">Update Search</button>
-    </div>
+    <%= form_for(@ride, :url => { :action=>"search", :controller=>"static" }, :class => "navbar-form" ) do |f| %>
+      <div class="form-group navbar-form">
+          <%= date_field("ride", "date", :required => true, placeholder: "Date", :class => "form-control") %>
+          <%= time_field("ride", "time", :required => true, placeholder: "Time", :class => "form-control") %>
+          <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
+          <%= f.text_field :end, :required => true, :placeholder => "Ariving at", :class => "form-control" %>
+          <%= f.hidden_field :comment %>
+          <button type="submit" class="btn btn-info update-search">Update Search</button>
+      </div>
 
-<% end %>
-<br><br>
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Date
-                </th>
-                <th width="10%">
-                    Time
-                </th>
-                <th width="10%">
-                    From
-                </th>
-                <th width="10%">
-                    To
-                </th>
-                <th width="10%">
-                    School
-                </th>
-                <th width="20%">
-                    Comments
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @rides.each do |ride| %>
-            <tr>
-                <td>
-                    <%= User.find_by_id(ride.user_id).name %>
-                </td>
-                <td>
-                    <%= ride.date %>
-                </td>
-                <td>
-                    <%= ride.time %>
-                </td>
-                <td>
-                    <%= ride.start %>
-                </td>
-                <td>
-                    <%= ride.end %>
-                </td>
-                <td>
-                    <%= User.find_by_id(ride.user_id) %>
-                </td>
-                <td>
-                    <%= ride.comment %>
-                </td>
-                <td>
-                    <div class="btn btn-main">
-                        <a href="#popUp" id="openPopup" onclick="showSender('<%=User.find_by_id(ride.user_id).name%>', '<%=ride.user_id%>');">
-                            <span style="color:white">Contact</span>
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>
-<!-- POP UP -->
-<div class="popupbody">
-    <aside id="popUp" class="popup">
-        <div class="popUpContainer">
-            <header>
-                <a href="#!" class="closePopUp">X</a>
-                <h2>CONTACT</h2>
-            </header>
-            <article>
-              <%= form_tag messages_path, method: :post do %>
-                <div class="wrap">
-
-                      <div class="input">
-                          <div id="sender-info" style="margin 4% 0%;"></div>
-                          <div class="blockinput">
-                              <textarea placeholder="Let the person know you're interested in sharing a ride", name="body" style="height: 8em;"></textarea>
-                          </div>
-                          <span id="hidden-send"></span>
+  <% end %>
+  <br><br>
+  <div class="container">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>
+                      Name
+                  </th>
+                  <th>
+                      Date
+                  </th>
+                  <th width="10%">
+                      Time
+                  </th>
+                  <th width="10%">
+                      From
+                  </th>
+                  <th width="10%">
+                      To
+                  </th>
+                  <th width="10%">
+                      School
+                  </th>
+                  <th width="20%">
+                      Comments
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @rides.each do |ride| %>
+              <tr>
+                  <td>
+                      <%= User.find_by_id(ride.user_id).name %>
+                  </td>
+                  <td>
+                      <%= ride.date %>
+                  </td>
+                  <td>
+                      <%= ride.time %>
+                  </td>
+                  <td>
+                      <%= ride.start %>
+                  </td>
+                  <td>
+                      <%= ride.end %>
+                  </td>
+                  <td>
+                      <%= User.find_by_id(ride.user_id) %>
+                  </td>
+                  <td>
+                      <%= ride.comment %>
+                  </td>
+                  <td>
+                      <div class="btn btn-main">
+                          <a href="#popUp" id="openPopup" onclick="showSender('<%=User.find_by_id(ride.user_id).name%>', '<%=ride.user_id%>');">
+                              <span style="color:white">Contact</span>
+                          </a>
                       </div>
+                  </td>
+              </tr>
+              <% end %>
+          </tbody>
+      </table>
+  </div>
+  <!-- POP UP -->
+  <div class="popupbody">
+      <aside id="popUp" class="popup">
+          <div class="popUpContainer">
+              <header>
+                  <a href="#!" class="closePopUp">X</a>
+                  <h2>CONTACT</h2>
+              </header>
+              <article>
+                <%= form_tag messages_path, method: :post do %>
+                  <div class="wrap">
 
-                </div>
-                <%= submit_tag 'Send Message', :class => "btn btn-main pull-right", :style => "margin: 0% 4%" %>
-                <% end %>
-            </article>
-        </div>
-        <a href="#!" class="closePopUpOutSide"></a>
-    </aside>
+                        <div class="input">
+                            <div id="sender-info" style="margin 4% 0%;"></div>
+                            <div class="blockinput">
+                                <textarea placeholder="Let the person know you're interested in sharing a ride", name="body" style="height: 8em;"></textarea>
+                            </div>
+                            <span id="hidden-send"></span>
+                        </div>
+
+                  </div>
+                  <%= submit_tag 'Send Message', :class => "btn btn-main pull-right", :style => "margin: 0% 4%" %>
+                  <% end %>
+              </article>
+          </div>
+          <a href="#!" class="closePopUpOutSide"></a>
+      </aside>
+  </div>
 </div>
-
-<script>
-function showSender(name, id) {
-    $("#sender-info").html("To: " + name);
-    $("#hidden-send").html("<input type='hidden' name='recipients' value="+id+">")
-}
-</script>
-<% console %>
+  <script>
+  function showSender(name, id) {
+      $("#sender-info").html("To: " + name);
+      $("#hidden-send").html("<input type='hidden' name='recipients' value="+id+">")
+  }
+  </script>

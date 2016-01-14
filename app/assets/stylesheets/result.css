@@ -49,3 +49,8 @@
 {
     background: #109177 !important;
 }
+
+.result-search {
+	display: inline block !important;
+	margin-left: 1em !important;
+}

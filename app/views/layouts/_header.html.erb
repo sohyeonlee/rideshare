@@ -3,7 +3,7 @@
         <div class="<%= 'transparent' if @inverse %>">
             <li class="logo">
                 <% if @inverse == "false" %>
-                <%= link_to(image_tag("logo.png", :width => 130), root_path) %>
+                <%= link_to(image_tag("logo.png", :width => 130, :class => "logo-img"), root_path) %>
             </li>
         <% else %>
             <style type="text/css">
@@ -53,16 +53,16 @@
                 <a href="#!" class="closePopUp">X</a>
                 <h2>SIGN IN</h2>
          </header>
-            <div class="mat-div">
+            <div class="mat-div" id="mattew">
               <%= f.label :email, :class => "mat-label" %><br />
-              <%= f.email_field :email, :class => "mat-input", :id => "E-mail", autofocus: true %>
+              <%= f.email_field :email, :class => "mat-input", :id => "E-mail", autofocus: true, :style => "background-color: transparent !important" %>
             </div>
 
-            <div class="mat-div">
+            <div class="mat-div" id="mattew">
               <%= f.label :password, :class => "mat-label" %><br />
-              <%= f.password_field :password, :class => "mat-input", :id =>"password", autocomplete: "off" %>
+              <%= f.password_field :password, :class => "mat-input", :id =>"password", autocomplete: "off", :style => "background-color: transparent !important"  %>
             </div>
-            <%= f.submit "See My Matches", :class => "btn btn-lg btn-main registration" %>
+            <%= f.submit "See My Matches", :class => "btn btn-lg btn-main registration", :style => "background-color: #1abc9c !important"%>
         <div class="btbottom">
           <label class="forgot"><a href="#">Forgot Password</a></label>
           <label class="gosignup" for="trigger">Sign Up</label>
@@ -78,20 +78,20 @@
         </header>
         <div class="mat-div">
           <%= f.label :name, :class => "mat-label" %><br />
-          <%= f.text_field :name, :class => "mat-input", autofocus: true %>
+          <%= f.text_field :name, :class => "mat-input ", autofocus: true, :style => "background-color: transparent !important" %>
         </div>
 
         <div class="mat-div">
           <%= f.label :university_email, :class => "mat-label" %><br />
-          <%= f.email_field :email, :class => "mat-input", autofocus: true %>
+          <%= f.email_field :email, :class => "mat-input ", :style => "background-color: transparent !important" %>
         </div>
 
         <div class="mat-div">
           <%= f.label :password, :class => "mat-label" %>
-          <%= f.password_field :password, autocomplete: "off", :class => "mat-input" %>
+          <%= f.password_field :password, autocomplete: "off", :class => "mat-input", :style => "background-color: transparent !important" %>
         </div>
 
-          <%= f.submit "See My Matches", :class => "btn btn-lg btn-main registration" %>
+          <%= f.submit "See My Matches", :class => "btn btn-lg btn-main registration", :style => "background-color: #1abc9c !important" %>
         <label class="fake-link" for="trigger">ALREADY HAVE AN ACCOUNT</label>
     <% end %>
   </div>

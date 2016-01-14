@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
+  get '/result' => 'static#result'
   post '/result' => 'static#result'
   patch '/search' => 'static#search'
 

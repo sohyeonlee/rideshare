@@ -61,7 +61,6 @@ span.twitter-typeahead {
     color:#8a97a0;
     -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 20px;
 
 }
 .form-style-main input[type="airport"]:focus,
@@ -90,7 +89,7 @@ span.twitter-typeahead {
     color: #FFF !important;
     margin: 0 auto !important;
     background: #1abc9c !important;
-    font-size: 16px !important;
+    font-size: 16px;
     text-align: center !important;
     font-style: normal !important;
     width: 100% !important;

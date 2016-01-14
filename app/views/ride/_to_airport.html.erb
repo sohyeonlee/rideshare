@@ -1,45 +1,39 @@
 <div id="toairport" class="panel active">
     <%= form_for(@ride, :url => { :action=>"result", :controller=>"static" } ) do |f| %>
+    <div class="form-group inline-address first-main">
     Departure
-    <div class="form-group">
-        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control" %>
+        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control firstline" %>
     </div>
+    <div class="form-group inline-address first-main">
+    City
+        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control m-forms firstline" %>
+    </div>
+    <div class="form-group inline-address second-main">
     Airport
-    <div class="form-group">
       <div id="pre-fetch">
-        <%= f.text_field :end, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead" %>
+        <%= f.text_field :end, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline", :style => "background-color: white !important"%>
       </div>
     </div>
+    <div class="form-group inline-address second-main">
     Date
-    <div class="form-group">
-        <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
+        <%= date_field("ride", "date", :required => true, placeholder: "Date", :class => "firstline") %>
     </div>
-
+    <div class="form-group inline-address second-sm">
     Flight Time
-    <div class="form-group">
-        <%= time_field("ride", "time",  :required => true, placeholder: "Date") %>
+        <%= time_field("ride", "time",  :required => true, placeholder: "Date", :class => "firstline") %>
     </div>
+    <div class="form-group inline-address" style="width: 100%;">
     Leave Comments
-    <div class="form-group">
-        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true) %>
+        <%= text_area("ride", "comment", placeholder: "ex. I am willing to split uber", :required => true, :class => "firstline") %>
     </div>
-    <% if current_user.present? %>
-      <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
-    <% else %>
-      <a href="#popUp2">
-        <div class="btn btn-main btn-landing">
-          <span style="color:white">Find a RideMate</span>
-        </div>
-      </a>
-    <% end %>
+    <%= f.submit 'Find a RideMate', :class => 'btn btn-main', data: { disable_with: 'Loading...' } %>
     <% end %>
 </div>
+
 <script>
 var airports = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.whitespace,
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  // url points to a json file that contains an array of country names, see
-  // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
   prefetch: '/airport.json'
 });
 

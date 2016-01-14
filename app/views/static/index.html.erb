@@ -19,18 +19,20 @@
     </div>
     <div class="form-style-main" id="background-main">
         <div class="btn-group" data-toggle="buttons">
+
             <label class="btn btn-casual active">
+              <span onclick="toairport()">
                 <input type="radio" name="options" class="tab active" value="toairport" autocomplete="off" checked>
-                <span onclick="toairport()">
-                    To Airport
-                </span>
+                To Airport
+              </span>
             </label>
+
             <label class="btn btn-casual">
+              <span onclick="fromairport()">
                 <input type="radio" name="options" class="tab" value="fromairport" autocomplete="off">
-                <span onclick="fromairport()">
-                    From Airport
-                </span>
+                From Airport
             </label>
+          </span>
         </div>
 
         <br>
@@ -100,4 +102,3 @@
 
         }
     </script>
-<% console %>

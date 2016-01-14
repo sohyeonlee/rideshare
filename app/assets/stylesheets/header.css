@@ -129,6 +129,25 @@ img#sns.footer-content {
 .dropdown-toggle {
   width: 120px;
 }
-ul.dropdown-menu {
 
+@media only screen and (max-width: 1000px) {
+  .sign {
+    margin: 20px;
+    font-size: 2.5em;
+  }
+
+  .hello-user {
+      margin-top: 1.5em;
+      font-size: 0.5em;
+  }
+  .logo-img {
+    margin: 0;
+    width:200px;
+  }
+  .dropdown-toggle {
+    width: 150px;
+  }
+  .logo {
+    margin-left: 0;
+  }
 }
