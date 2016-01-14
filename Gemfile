@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'devise'
 gem 'mailboxer'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'sqlite3'
