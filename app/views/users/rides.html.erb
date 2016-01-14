@@ -24,11 +24,8 @@
               <td> <%= current_user.name %> </td>
               <td> <%= ride.date %> </td>
               <td> <%=ride.time %> </td>
-              <td> <%=ride.start %> </td>
-              <td>
-                <%=ride.end %>
-
-              </td>
+              <td> <%=ride.start_point %> </td>
+              <td><%=ride.end_point %></td>
               <td><div class="pull-right" style="width:150px">
                 <%= link_to 'Edit', edit_ride_path(ride.id), class: 'btn btn-sm btn-info', method: :get %>
                 <%= link_to 'Delete', ride_path(id: ride.id), class: 'btn btn-sm btn-danger', method: :delete,

@@ -6,12 +6,12 @@
     </div>
     <div class="form-group inline-address first-main">
     City
-        <%= f.text_field :start, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control m-forms firstline" %>
+        <%= f.text_field :start_point, :required => true, :id => "city-result", :placeholder => "Departing from", :class => "form-control m-forms firstline" %>
     </div>
     <div class="form-group inline-address second-main">
     Airport
       <div id="pre-fetch">
-        <%= f.text_field :end, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline", :style => "background-color: white !important"%>
+        <%= f.text_field :end_point, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline", :style => "background-color: white !important"%>
       </div>
     </div>
     <div class="form-group inline-address second-main">

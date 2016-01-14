@@ -20,8 +20,8 @@
   <div class="form-group navbar-form">
       <%= date_field("ride", "date", :required => true, placeholder: "Date") %>
       <%= time_field("ride", "time", :required => true, placeholder: "Time") %>
-      <%= f.text_field :start, :required => true, :placeholder => "Departing from", :class => "form-control" %>
-      <%= f.text_field :end, :required => true, :placeholder => "Ariving at", :class => "form-control" %>
+      <%= f.text_field :start_point, :required => true, :placeholder => "Departing from", :class => "form-control" %>
+      <%= f.text_field :end_point, :required => true, :placeholder => "Ariving at", :class => "form-control" %>
       <%= f.hidden_field :comment %>
       <button type="submit" class="btn btn-info">Update Search</button>
   </div>
@@ -67,10 +67,10 @@
                     <%= ride.time %>
                 </td>
                 <td>
-                    <%= ride.start %>
+                    <%= ride.start_point %>
                 </td>
                 <td>
-                    <%= ride.end %>
+                    <%= ride.end_point %>
                 </td>
                 <td>
                     <%= User.find_by_id(ride.user_id) %>

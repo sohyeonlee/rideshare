@@ -3,7 +3,7 @@
     <div class="form-group inline-address second-main">
     Airport
       <div id="prefetch">
-        <%= f.text_field :start, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline" %>
+        <%= f.text_field :start_point, :required => true, :placeholder => "Search Airport", :class => "form-control typeahead firstline" %>
       </div>
     </div>
     <div class="form-group inline-address second-main">
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group inline-address first-main">
     City
-        <%= f.text_field :end,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
+        <%= f.text_field :end_point,  :required => true, :id => "city", :placeholder => "Destination", :class => "form-control firstline" %>
     </div>
     <div class="form-group inline-address" style="width: 100%;">
     Leave Comments
