@@ -213,7 +213,7 @@ input[type=checkbox]:checked ~ #sign-up {
     display: block !important;
     margin: 5% auto !important;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
     #signin h2 {
         font-size: 50px;
     }
@@ -224,8 +224,8 @@ input[type=checkbox]:checked ~ #sign-up {
         width: 80%;
         top: 15%;
         font-size: 35px;
-        min-height: 43%;
-        height: 50%;
+        min-height: 50%;
+        height: 55%;
     }
     .registration {
         font-size: 1em !important;
@@ -249,6 +249,6 @@ input[type=checkbox]:checked ~ #sign-up {
         top: 15%;
         font-size: 35px;
         min-height: 53%;
-        height: 53%;
+        height: 60%;
     }
 }

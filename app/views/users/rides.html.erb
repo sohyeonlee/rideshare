@@ -1,43 +1,45 @@
 <!-- Request lists (all conversations) -->
-<div class="container">
-  <%= link_to "+ Add Ride Request", new_ride_path, :class => "btn btn-main "%>
-  <span class="pull-right"> <%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
-  <div class="col-md-3">
-    <%= render 'layouts/sidebar' %>
-  </div>
-  <div class="col-md-9 col-sm-12">
-    <table class="table no-border-table">
-      <thead>
-        <tr>
-          <th width="20%"> Name </th>
-          <th> Date </th>
-          <th> Time </th>
-          <th> From </th>
-          <th> To </th>
-        </tr>
-      </thead>
-      <tbody>
+<div class="background-gray">
+  <div class="container">
+    <%= link_to "+ Add Ride Request", new_ride_path, :class => "btn btn-main "%>
+    <span class="pull-right"> <%= link_to "Log Out", destroy_user_session_path, method: :delete %></span>
+    <div class="col-md-3">
+      <%= render 'layouts/sidebar' %>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <table class="table no-border-table">
+        <thead>
+          <tr>
+            <th width="20%"> Name </th>
+            <th> Date </th>
+            <th> Time </th>
+            <th> From </th>
+            <th> To </th>
+          </tr>
+        </thead>
+        <tbody>
 
-        <% if current_user.rides.present? %>
-          <% current_user.rides.each do |ride| %>
-            <tr>
-              <td> <%= current_user.name %> </td>
-              <td> <%= ride.date %> </td>
-              <td> <%=ride.time %> </td>
-              <td> <%=ride.start_point %> </td>
-              <td><%=ride.end_point %></td>
-              <td><div class="pull-right" style="width:150px">
-                <%= link_to 'Edit', edit_ride_path(ride.id), class: 'btn btn-sm btn-info', method: :get %>
-                <%= link_to 'Delete', ride_path(id: ride.id), class: 'btn btn-sm btn-danger', method: :delete,
-                 data: {confirm: 'Are you sure?'} %>
-               </div>
-             </td>
-            </tr>
+          <% if current_user.rides.present? %>
+            <% current_user.rides.each do |ride| %>
+              <tr>
+                <td> <%= current_user.name %> </td>
+                <td> <%= ride.date %> </td>
+                <td> <%=ride.time %> </td>
+                <td> <%=ride.start_point %> </td>
+                <td><%=ride.end_point %></td>
+                <td><div class="pull-right" style="width:150px">
+                  <%= link_to 'Edit', edit_ride_path(ride.id), class: 'btn btn-sm btn-info', method: :get %>
+                  <%= link_to 'Delete', ride_path(id: ride.id), class: 'btn btn-sm btn-danger', method: :delete,
+                   data: {confirm: 'Are you sure?'} %>
+                 </div>
+               </td>
+              </tr>
+            <% end %>
+          <% else %>
+            <td> No rides yet requested</td>
           <% end %>
-        <% else %>
-          <td> No rides yet requested</td>
-        <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

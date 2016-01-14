@@ -82,13 +82,13 @@
         </div>
 
         <div class="mat-div">
-          <%= f.label :university_email, :class => "mat-label" %><br />
-          <%= f.email_field :email, :class => "mat-input ", :style => "background-color: transparent !important" %>
+          <%= f.label :label, "University Email (.edu only)", :class => "mat-label" %><br />
+          <%= f.email_field :email, :class => "mat-input ", :pattern => '[a-zA-Z0-9_-]+[@][a-zA-Z]+(\.edu)', :title => ".edu format email only", :style => "background-color: transparent !important" %>
         </div>
 
         <div class="mat-div">
           <%= f.label :password, :class => "mat-label" %>
-          <%= f.password_field :password, autocomplete: "off", :class => "mat-input", :style => "background-color: transparent !important" %>
+          <%= f.password_field :password, autocomplete: "off", :pattern => '.{8,}', :title => "8 chars minimum", :class => "mat-input", :style => "background-color: transparent !important" %>
         </div>
 
           <%= f.submit "Sign Up", :class => "btn btn-lg btn-main registration", :style => "background-color: #1abc9c !important" %>
